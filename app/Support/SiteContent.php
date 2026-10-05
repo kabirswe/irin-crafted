@@ -27,7 +27,6 @@ class SiteContent
             'brand' => config('site.brand'),
             'nav' => config('site.nav'),
             'footer' => config('site.footer'),
-            'tests' => null,
         ];
     }
 }

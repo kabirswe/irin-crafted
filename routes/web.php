@@ -37,9 +37,9 @@ $serviceSlugs = [
     'wine-pairing',
 ];
 
-foreach ($serviceSlugs as $slug) {
-    Route::get('/'.$slug, [PageController::class, 'service'])->defaults('slug', $slug)->name('service.'.$slug);
-}
+Route::get('/{service}', [PageController::class, 'service'])
+    ->whereIn('service', $serviceSlugs)
+    ->name('service');
 
 /* Form endpoints (UI only for now — swap the mailer in when ready). */
 Route::post('/book-a-chef', [BookingController::class, 'store'])->name('booking.store');

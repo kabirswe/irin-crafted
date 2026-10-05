@@ -1,0 +1,85 @@
+name: Laravel + build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  backend:
+    name: PHP / Laravel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, bcmath, ctype, json, openssl, pdo, pdo_sqlite, tokenizer, xml, curl, fileinfo
+          coverage: none
+
+      - name: Lint every PHP file
+        run: |
+          set -e
+          find app bootstrap config database routes public -name '*.php' -print0 \
+            | xargs -0 -n1 php -l
+
+      - name: Composer install
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate --ansi
+          touch database/database.sqlite
+
+      - name: Boot the application (route table)
+        run: php artisan route:list --except-vendor
+
+      - name: Compile Blade views
+        run: php artisan view:cache
+
+      - name: Cache config
+        run: php artisan config:cache
+
+      - name: Serve and smoke test every route
+        run: |
+          php artisan migrate --force
+          php artisan serve --host=127.0.0.1 --port=8123 > /tmp/serve.log 2>&1 &
+          sleep 6
+          fail=0
+          for path in / /about-us /services /private-dining /weekly-meal-prep /special-events \
+                      /corporate-dining /dietary-plans /wine-pairing /menu-experience /gallery \
+                      /faq /book-a-chef /contact-us /blog; do
+            code=$(curl -s -o /tmp/body.html -w '%{http_code}' "http://127.0.0.1:8123$path")
+            if [ "$code" != "200" ]; then echo "FAIL $path -> $code"; fail=1; fi
+            if ! grep -q 'data-page' /tmp/body.html; then echo "FAIL $path -> no Inertia payload"; fail=1; fi
+          done
+          code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:8123/definitely-missing")
+          if [ "$code" != "404" ]; then echo "FAIL 404 fallback -> $code"; fail=1; fi
+          echo "---- server log ----"; tail -30 /tmp/serve.log
+          exit $fail
+
+  frontend:
+    name: Node / Vite build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build (Laravel entry)
+        run: npm run build
+
+      - name: Build (standalone preview entry)
+        run: npm run preview:build
+
+      - name: Report bundle sizes
+        run: du -sh public/build dist-preview

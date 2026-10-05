@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SiteContent;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 /**
  * Renders every page through Inertia + React.
@@ -15,9 +17,9 @@ use Inertia\Response;
 class PageController extends Controller
 {
     /** Shared content payload — mirrors resources/js/data/content.js. */
-    protected function content(): \App\Support\SiteContent
+    protected function content(): SiteContent
     {
-        return new \App\Support\SiteContent;
+        return new SiteContent;
     }
 
     public function home(): Response
@@ -89,10 +91,11 @@ class PageController extends Controller
         ]);
     }
 
-    public function notFound(Request $request): Response
+    public function notFound(Request $request): SymfonyResponse
     {
-        return Inertia::render('NotFound')
-            ->toResponse($request)
-            ->setStatusCode(404);
+        $response = Inertia::render('NotFound')->toResponse($request);
+        $response->setStatusCode(404);
+
+        return $response;
     }
 }
