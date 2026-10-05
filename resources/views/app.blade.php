@@ -27,8 +27,18 @@
         <link rel="preload" href="{{ asset('fonts/cormorant-garamond-latin-600-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="{{ asset('fonts/inter-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-        @viteReactRefresh
-        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
+        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+            @viteReactRefresh
+            @vite(['resources/css/app.css', 'resources/js/app.jsx'])
+        @else
+            {{-- Front-end assets have not been compiled yet.
+                 Run `npm install && npm run build` (or `npm run dev`) to render the UI. --}}
+            <style>
+                body { background:#0e0d0b; color:#b8aa96; font-family:system-ui,sans-serif;
+                       display:grid; place-items:center; min-height:100vh; margin:0; text-align:center; }
+                code { color:#c9a45c; }
+            </style>
+        @endif
         @inertiaHead
     </head>
     <body class="bg-ink-900 antialiased">

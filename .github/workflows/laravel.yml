@@ -35,6 +35,15 @@ jobs:
           php artisan key:generate --ansi
           touch database/database.sqlite
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build front-end assets
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
       - name: Boot the application (route table)
         run: php artisan route:list --except-vendor
 
