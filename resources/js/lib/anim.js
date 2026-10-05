@@ -56,54 +56,49 @@ export function createPageAnimations(scope) {
     const ctx = gsap.context(() => {
         const reduced = prefersReducedMotion();
 
-        /* --- generic reveals ------------------------------------- */
+        /* --- generic reveals -------------------------------------
+           One trigger per element (batches can be missed when a visitor
+           scrolls quickly past a group). `once: true` plus a safety sweep
+           below guarantees nothing is ever left invisible.            */
         const reveals = gsap.utils.toArray('[data-anim]', scope);
-        const byParent = new Map();
-        reveals.forEach((el) => {
-            const key = el.dataset.staggerGroup || el.parentElement;
-            if (!byParent.has(key)) byParent.set(key, []);
-            byParent.get(key).push(el);
-        });
-
-        byParent.forEach((els) => {
-            const from = { opacity: 0, y: 44, filter: 'blur(6px)' };
-            els.forEach((el) => {
-                const kind = el.dataset.anim || 'up';
-                if (kind === 'fade') Object.assign(from, { y: 0 });
-                if (kind === 'left') Object.assign(from, { y: 0, x: -60 });
-                if (kind === 'right') Object.assign(from, { y: 0, x: 60 });
-                if (kind === 'zoom') Object.assign(from, { y: 0, scale: 0.92 });
+        const revealFrom = (el) => {
+            const kind = el.dataset.anim || 'up';
+            const base = { opacity: 0, y: 44, filter: 'blur(6px)' };
+            if (kind === 'fade') return { ...base, y: 0 };
+            if (kind === 'left') return { ...base, y: 0, x: -60 };
+            if (kind === 'right') return { ...base, y: 0, x: 60 };
+            if (kind === 'zoom') return { ...base, y: 0, scale: 0.92 };
+            return base;
+        };
+        const showEl = (el, animated = true) => {
+            const delay = parseFloat(el.dataset.delay || 0);
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                scale: 1,
+                filter: 'blur(0px)',
+                duration: animated ? 1.2 : 0,
+                delay,
+                ease: 'power3.out',
+                overwrite: 'auto',
+                clearProps: 'filter,willChange',
             });
+        };
 
-            const delay = parseFloat(els[0]?.dataset.delay || 0);
-            if (reduced) {
-                gsap.set(els, { opacity: 1, clearProps: 'transform,filter' });
-                return;
-            }
-
-            ScrollTrigger.batch(els, {
-                start: 'top 88%',
-                once: true,
-                onEnter: (batch) =>
-                    gsap.fromTo(
-                        batch,
-                        { ...from, opacity: 0 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            x: 0,
-                            scale: 1,
-                            filter: 'blur(0px)',
-                            duration: 1.25,
-                            delay,
-                            stagger: 0.11,
-                            ease: 'power3.out',
-                            overwrite: true,
-                            clearProps: 'filter,willChange',
-                        },
-                    ),
+        if (reduced) {
+            gsap.set(reveals, { opacity: 1, clearProps: 'transform,filter' });
+        } else {
+            reveals.forEach((el) => {
+                gsap.set(el, revealFrom(el));
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 92%',
+                    once: true,
+                    onEnter: () => showEl(el),
+                });
             });
-        });
+        }
 
         /* --- split headings -------------------------------------- */
         gsap.utils.toArray('[data-split]', scope).forEach((el) => {
@@ -186,53 +181,56 @@ export function createPageAnimations(scope) {
             });
         }
 
-        /* --- image reveal (clip + scale) ------------------------- */
-        gsap.utils.toArray('[data-img-reveal]', scope).forEach((el) => {
-            if (reduced) return;
-            const img = el.querySelector('img') || el;
-            const st = { trigger: el, start: 'top 92%', once: true };
-            gsap.fromTo(
-                el,
-                { clipPath: 'inset(0% 0% 100% 0%)' },
-                {
-                    clipPath: 'inset(0% 0% 0% 0%)',
-                    duration: 1.4,
-                    ease: 'power4.inOut',
-                    immediateRender: false,
-                    scrollTrigger: st,
-                },
-            );
-            gsap.fromTo(
-                img,
-                { scale: 1.22 },
-                {
-                    scale: 1,
-                    duration: 1.8,
-                    ease: 'power4.out',
-                    immediateRender: false,
-                    scrollTrigger: { ...st },
-                },
-            );
-        });
-
-        /* --- gold rule draw -------------------------------------- */
+        /* --- image reveal (clip + scale) -------------------------
+           Trigger driven on purpose: nothing is hidden up front, so a
+           reveal can never leave an image stuck invisible.            */
         if (!reduced) {
-            gsap.utils.toArray('[data-rule]', scope).forEach((el) => {
-                gsap.fromTo(
-                    el,
-                    { scaleX: 0, transformOrigin: 'left center' },
-                    {
-                        scaleX: 1,
-                        duration: 1.2,
-                        ease: 'power3.inOut',
-                        scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+            gsap.utils.toArray('[data-img-reveal]', scope).forEach((el) => {
+                const img = el.querySelector('img');
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 92%',
+                    once: true,
+                    onEnter: () => {
+                        gsap.fromTo(
+                            el,
+                            { clipPath: 'inset(0% 0% 100% 0%)' },
+                            { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'power4.inOut' },
+                        );
+                        if (img) {
+                            gsap.fromTo(img, { scale: 1.22 }, { scale: 1, duration: 1.8, ease: 'power4.out' });
+                        }
                     },
-                );
+                });
+            });
+
+            /* --- gold rule draw ----------------------------------- */
+            gsap.utils.toArray('[data-rule]', scope).forEach((el) => {
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: 'top 92%',
+                    once: true,
+                    onEnter: () =>
+                        gsap.fromTo(
+                            el,
+                            { scaleX: 0, transformOrigin: 'left center' },
+                            { scaleX: 1, duration: 1.2, ease: 'power3.inOut' },
+                        ),
+                });
             });
         }
 
-        /* --- hero timeline --------------------------------------- */
+        /* --- hero timeline ---------------------------------------
+           Hero elements are visible in the DOM by default; the timeline
+           animates them in. If the timeline is skipped for any reason the
+           page still reads correctly.                                */
         const heroTl = scope.querySelector('[data-hero]');
+        if (heroTl && reduced) {
+            gsap.set(heroTl.querySelectorAll('[data-hero-eyebrow],[data-hero-copy],[data-hero-action],[data-hero-badge],[data-hero-visual]'), {
+                opacity: 1,
+                clearProps: 'transform,clipPath',
+            });
+        }
         if (heroTl && !reduced) {
             const eyebrow = heroTl.querySelector('[data-hero-eyebrow]');
             const lines = heroTl.querySelectorAll('[data-hero-line]');
@@ -282,8 +280,29 @@ export function createPageAnimations(scope) {
         document.fonts.ready.then(refresh).catch(() => {});
     }
 
+    /* Safety sweep — if any reveal is left invisible (fast scrolling, a
+       missed trigger, a browser hiccup) bring it back after a moment. */
+    const sweep = setTimeout(() => {
+        scope.querySelectorAll('[data-anim]').forEach((el) => {
+            if (parseFloat(getComputedStyle(el).opacity) < 0.5 && el.getBoundingClientRect().top < window.innerHeight) {
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    x: 0,
+                    scale: 1,
+                    filter: 'blur(0px)',
+                    duration: 0.6,
+                    delay: 0,
+                    overwrite: 'auto',
+                    clearProps: 'filter,willChange',
+                });
+            }
+        });
+    }, 1800);
+
     return () => {
         timers.forEach(clearTimeout);
+        clearTimeout(sweep);
         ctx.revert();
     };
 }

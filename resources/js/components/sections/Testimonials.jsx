@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Icon from '../ui/Icon';
-import Img from '../ui/Img';
+import Avatar from '../ui/Avatar';
 import { SectionEyebrow } from '../ui/decor';
 import { Rating, Reveal } from '../ui/primitives';
 
@@ -32,9 +32,7 @@ function QuoteCard({ t, className = '' }) {
                 “{t.quote}”
             </blockquote>
             <figcaption className="mt-auto flex flex-col items-center gap-3 pt-7">
-                <span className="size-12 overflow-hidden rounded-full border border-gold-600/40">
-                    <Img src={t.avatar} alt={t.name} fallbackLabel={t.name} className="h-full w-full rounded-full" />
-                </span>
+                <Avatar src={t.avatar} name={t.name} size={48} />
                 <span>
                     <span className="block font-display text-lg text-cream-100">{t.name}</span>
                     <span className="mt-0.5 block text-[0.6rem] uppercase tracking-[0.24em] text-gold-400">{t.role}</span>
@@ -160,9 +158,7 @@ export default function Testimonials({
                                     “{t.quote}”
                                 </blockquote>
                                 <figcaption className="mt-9 flex flex-col items-center gap-3">
-                                    <span className="size-16 overflow-hidden rounded-full border border-gold-600/40">
-                                        <Img src={t.avatar} alt={t.name} fallbackLabel={t.name} className="h-full w-full rounded-full" />
-                                    </span>
+                                    <Avatar src={t.avatar} name={t.name} size={64} />
                                     <span className="font-display text-xl text-cream-50">{t.name}</span>
                                     <span className="text-[0.62rem] uppercase tracking-[0.28em] text-gold-500">{t.role}</span>
                                 </figcaption>

@@ -39,15 +39,16 @@ function PostCard({ post, index, featured = false }) {
     );
 }
 
-export default function BlogGrid({ posts, eyebrow = 'Journal', title = 'Notes From The Kitchen', body, limit, cta }) {
+export default function BlogGrid({ posts, eyebrow = 'Journal', title = 'Notes From The Kitchen', body, limit, cta, showHeader = true }) {
     const list = limit ? posts.slice(0, limit) : posts;
     return (
         <section className="section relative">
             <div className="shell">
+                {showHeader && (
                 <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
                     <div className="max-w-2xl">
-                        <SectionEyebrow>{eyebrow}</SectionEyebrow>
-                        <h2 data-split className="display-2 mt-5 opacity-0 text-balance">{title}</h2>
+                        {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
+                        {title && <h2 data-split className="display-2 mt-5 opacity-0 text-balance">{title}</h2>}
                         {body && (
                             <Reveal delay={0.06} className="mt-5">
                                 <p className="text-cream-400">{body}</p>
@@ -63,8 +64,9 @@ export default function BlogGrid({ posts, eyebrow = 'Journal', title = 'Notes Fr
                         </Reveal>
                     )}
                 </div>
+                )}
 
-                <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-3 ${showHeader ? 'mt-14' : ''}`}>
                     {list.map((post, i) => (
                         <PostCard key={post.title} post={post} index={i} featured={i === 0 && list.length > 3} />
                     ))}

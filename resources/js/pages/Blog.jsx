@@ -6,32 +6,50 @@ import CtaBand from '../components/sections/CtaBand';
 import Icon from '../components/ui/Icon';
 import { Reveal } from '../components/ui/primitives';
 import { content } from '../data/content';
+import { SectionEyebrow } from '../components/ui/decor';
 
 export default function Blog() {
     const { posts, pageMeta, cta } = content;
     const [email, setEmail] = useState('');
     const [done, setDone] = useState(false);
+    const [category, setCategory] = useState('All');
 
     const categories = ['All', ...new Set(posts.map((p) => p.category))];
+    const visible = category === 'All' ? posts : posts.filter((p) => p.category === category);
 
     return (
         <Layout content={content} path="/blog">
             <PageHero meta={pageMeta['/blog']} breadcrumb={[{ label: 'Blog' }]} image="/images/about-chef-hands.jpg" />
 
-            <section className="section-tight">
-                <div className="shell flex flex-wrap items-center justify-center gap-3">
-                    {categories.map((cat) => (
-                        <span
-                            key={cat}
-                            className="rounded-full border border-cream-200/15 px-5 py-2.5 text-[0.68rem] uppercase tracking-[0.2em] text-cream-400 transition-colors duration-500 hover:border-gold-600/60 hover:text-gold-200"
-                        >
-                            {cat}
-                        </span>
-                    ))}
+            {/* filter row */}
+            <section className="section-tight pb-0">
+                <div className="shell flex flex-col items-center gap-7">
+                    <SectionEyebrow>Journal</SectionEyebrow>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                type="button"
+                                onClick={() => setCategory(cat)}
+                                aria-pressed={category === cat}
+                                className={`rounded-full border px-5 py-2.5 text-[0.68rem] font-medium uppercase tracking-[0.2em] transition-all duration-500 ${
+                                    category === cat
+                                        ? 'border-gold-400/70 bg-gold-400/12 text-gold-100'
+                                        : 'border-cream-100/15 text-cream-400 hover:border-gold-500/60 hover:text-gold-200'
+                                }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            <BlogGrid posts={posts} showHeader={false} title="" />
+            <BlogGrid
+                posts={visible}
+                showHeader={false}
+                cta={category !== 'All' ? { label: 'View all articles', href: '/blog' } : null}
+            />
 
             {/* newsletter */}
             <section className="section-tight">

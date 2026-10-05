@@ -1,5 +1,6 @@
 import Icon from '../ui/Icon';
 import Img from '../ui/Img';
+import Avatar from '../ui/Avatar';
 import { CornerBloom, FloralMark } from '../ui/decor';
 import { Counter, Rating, Reveal } from '../ui/primitives';
 import { AppLink } from '../../lib/router';
@@ -48,18 +49,8 @@ export default function Hero({ hero }) {
                     <div className="mt-11 flex flex-wrap items-center gap-x-10 gap-y-6">
                         <div data-hero-badge className="flex items-center gap-4">
                             <div className="flex -space-x-3">
-                                {[
-                                    '/images/avatar-olivia.jpg',
-                                    '/images/avatar-jessica.jpg',
-                                    '/images/avatar-michael.jpg',
-                                    '/images/avatar-daniel.jpg',
-                                ].map((src, i) => (
-                                    <span
-                                        key={src}
-                                        className="relative size-11 overflow-hidden rounded-full border border-gold-600/40 ring-2 ring-ink-900"
-                                    >
-                                        <Img src={src} alt="" fallbackLabel={`0${i + 1}`} className="h-full w-full rounded-full" />
-                                    </span>
+                                {['Olivia T.', 'Jessica M.', 'Michael A.', 'Daniel R.'].map((name) => (
+                                    <Avatar key={name} name={name} size={44} className="ring-2 ring-ink-900" />
                                 ))}
                             </div>
                             <div>

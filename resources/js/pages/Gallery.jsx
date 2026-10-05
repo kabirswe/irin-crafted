@@ -16,7 +16,7 @@ export default function Gallery() {
 
     return (
         <Layout content={content} path="/gallery">
-            <PageHero meta={pageMeta['/gallery']} breadcrumb={[{ label: 'Gallery' }]} image="/images/dish-scallop.jpg" />
+            <PageHero meta={pageMeta['/gallery']} breadcrumb={[{ label: 'Gallery' }]} image="/images/dish-filet.jpg" />
 
             <GalleryGrid
                 items={gallery}

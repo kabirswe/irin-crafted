@@ -193,8 +193,13 @@
 
     /* --- headings (reference scale) --- */
     .display-1 {
-        font-size: clamp(2.65rem, 5.4vw, 4.5rem);
-        line-height: 1.06;
+        font-size: clamp(2.65rem, 5vw, 3.6rem);
+        line-height: 1.08;
+    }
+    @media (min-width: 1280px) {
+        .display-1 {
+            font-size: 4.5rem; /* 72px — reference h1 */
+        }
     }
     .display-2 {
         font-size: clamp(2rem, 3.9vw, 3.375rem); /* up to 54px, as reference */
@@ -468,6 +473,16 @@
    ------------------------------------------------------------------ */
 [data-anim] {
     will-change: transform, opacity;
+}
+
+/* Headlines that GSAP splits are pre-dimmed; the animation reveals them and
+   the no-JS / reduced-motion rules below guarantee they are never lost. */
+[data-split] {
+    opacity: 0;
+}
+.no-js [data-split],
+.no-js-fallback [data-split] {
+    opacity: 1 !important;
 }
 .no-js-fallback [data-anim] {
     opacity: 1 !important;

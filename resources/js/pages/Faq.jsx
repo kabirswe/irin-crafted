@@ -10,7 +10,7 @@ export default function Faq() {
 
     return (
         <Layout content={content} path="/faq">
-            <PageHero meta={pageMeta['/faq']} breadcrumb={[{ label: 'FAQ' }]} image="/images/dish-salmon.jpg" />
+            <PageHero meta={pageMeta['/faq']} breadcrumb={[{ label: 'FAQ' }]} image="/images/service-wellness.jpg" />
 
             <FaqSection group={faqGroups[0]} layout="split" />
 

@@ -180,40 +180,34 @@ export const featuredMenus = [
         tag: 'Signature',
     },
     {
-        name: 'Burrata & Heirloom Tomatoes',
+        name: 'Seasonal Garden Plate',
         price: '$9',
-        body: 'Fresh basil, aged balsamic glaze and artisan olive oil.',
-        image: '/images/dish-burrata.jpg',
-        tag: 'Starter',
+        body: 'Market vegetables, ancient grains, herb oil and aged balsamic.',
+        image: '/images/service-wellness.jpg',
+        tag: 'First Course',
     },
     {
-        name: 'Herb-Crusted Salmon',
+        name: 'Chef’s Tasting Selection',
         price: '$18',
-        body: 'Seasonal greens, citrus beurre blanc and grilled asparagus.',
-        image: '/images/dish-salmon.jpg',
+        body: 'Five courses from the current season, plated at your table.',
+        image: '/images/about-dish.jpg',
         tag: 'Main',
     },
-    {
-        name: 'Dark Chocolate Mousse',
-        price: '$12',
-        body: 'Hazelnut crumble, vanilla cream and gold leaf finish.',
-        image: '/images/dish-mousse.jpg',
-        tag: 'Dessert',
-    },
 ];
+
 
 export const menuCourses = [
     {
         course: 'Amuse-Bouche',
-        title: 'Seared Scallop',
-        body: 'Cauliflower purée, brown butter, chive oil.',
-        image: '/images/dish-scallop.jpg',
+        title: 'Champagne & Canapés',
+        body: 'A bright, celebratory opening poured at the table to lift the palate.',
+        image: '/images/service-wine.jpg',
     },
     {
         course: 'First Course',
-        title: 'Heirloom Tomato Salad',
-        body: 'Burrata, basil emulsion, aged balsamic pearls.',
-        image: '/images/dish-burrata.jpg',
+        title: 'Seasonal Garden Plate',
+        body: 'Market vegetables, ancient grains, herb oil and aged balsamic.',
+        image: '/images/service-wellness.jpg',
     },
     {
         course: 'Main Course',
@@ -223,11 +217,12 @@ export const menuCourses = [
     },
     {
         course: 'Dessert',
-        title: 'Dark Chocolate Mousse',
-        body: 'Hazelnut crumble, vanilla ice cream, gold leaf.',
-        image: '/images/dish-mousse.jpg',
+        title: 'Sweet Finale, Plated At The Table',
+        body: 'A final course finished in front of you — hazelnut, vanilla and gold leaf.',
+        image: '/images/about-chef-hands.jpg',
     },
 ];
+
 
 export const menuStyles = [
     {
@@ -238,7 +233,7 @@ export const menuStyles = [
     {
         title: 'Mediterranean Table',
         body: 'Fresh, vibrant flavors with seasonal vegetables, seafood and herbs.',
-        image: '/images/dish-salmon.jpg',
+        image: '/images/service-wellness.jpg',
     },
     {
         title: 'Celebration Menu',
@@ -246,6 +241,7 @@ export const menuStyles = [
         image: '/images/service-events.jpg',
     },
 ];
+
 
 export const pairings = [
     { title: 'Champagne & Canapés', body: 'A bright, celebratory opening that lifts the palate and sets the tone.' },
@@ -259,7 +255,7 @@ export const testimonials = [
             'Our anniversary dinner was remarkable, akin to a Michelin-star restaurant, with exceptional service and flavors.',
         name: 'Olivia T.',
         role: 'Special Occasion Dinner',
-        avatar: '/images/avatar-olivia.jpg',
+        avatar: null,
         rating: 5,
     },
     {
@@ -267,7 +263,7 @@ export const testimonials = [
             'Every detail felt thoughtfully curated. From the presentation to the flavors, the entire evening was elegant and intimate.',
         name: 'Jessica M.',
         role: 'Private Dinner',
-        avatar: '/images/avatar-jessica.jpg',
+        avatar: null,
         rating: 5,
     },
     {
@@ -275,7 +271,7 @@ export const testimonials = [
             'Professional, discreet and incredibly talented. Irin created a dining experience that impressed every guest at our event.',
         name: 'Michael A.',
         role: 'Private Event Experience',
-        avatar: '/images/avatar-michael.jpg',
+        avatar: null,
         rating: 5,
     },
     {
@@ -283,7 +279,7 @@ export const testimonials = [
             'The meal prep transformed our routine with quality, beautifully prepared meals and an effortless experience.',
         name: 'Daniel R.',
         role: 'Weekly Meal Prep',
-        avatar: '/images/avatar-daniel.jpg',
+        avatar: null,
         rating: 5,
     },
     {
@@ -291,7 +287,7 @@ export const testimonials = [
             'From the first tasting to the final course, everything was considered. Our guests still talk about that evening.',
         name: 'Sofia L.',
         role: 'Corporate Dinner',
-        avatar: '/images/avatar-sofia.jpg',
+        avatar: null,
         rating: 5,
     },
 ];
@@ -299,22 +295,25 @@ export const testimonials = [
 export const galleryCategories = ['All', 'Plating', 'Events', 'Craft', 'Details'];
 
 export const gallery = [
-    { src: '/images/dish-scallop.jpg', title: 'Culinary Art', category: 'Plating', span: 'tall' },
-    { src: '/images/service-events.jpg', title: 'Special Events', category: 'Events', span: 'wide' },
-    { src: '/images/about-chef-hands.jpg', title: "Chef's Craft", category: 'Craft', span: 'normal' },
-    { src: '/images/service-wine.jpg', title: 'Cellar Pairings', category: 'Details', span: 'normal' },
-    { src: '/images/dish-filet.jpg', title: 'Signature Main', category: 'Plating', span: 'wide' },
-    { src: '/images/service-private-dining.jpg', title: 'Candlelit Table', category: 'Events', span: 'tall' },
-    { src: '/images/dish-mousse.jpg', title: 'Sweet Finale', category: 'Dessert', span: 'normal' },
-    { src: '/images/service-meal-prep.jpg', title: 'Weekly Prep', category: 'Plating', span: 'normal' },
-    { src: '/images/service-corporate.jpg', title: 'Boardroom Service', category: 'Events', span: 'normal' },
+    { src: '/images/dish-filet.jpg', title: 'Culinary Art', category: 'Plating', ratio: '4 / 5' },
+    { src: '/images/service-events.jpg', title: 'Special Events', category: 'Events', ratio: '3 / 2' },
+    { src: '/images/about-chef-hands.jpg', title: 'Chef’s Craft', category: 'Craft', ratio: '1 / 1' },
+    { src: '/images/service-wine.jpg', title: 'Cellar Pairings', category: 'Details', ratio: '4 / 5.4' },
+    { src: '/images/about-dish.jpg', title: 'Signature Main', category: 'Plating', ratio: '4 / 3' },
+    { src: '/images/service-private-dining.jpg', title: 'Candlelit Table', category: 'Events', ratio: '4 / 5' },
+    { src: '/images/service-wellness.jpg', title: 'Garden Course', category: 'Plating', ratio: '1 / 1' },
+    { src: '/images/service-meal-prep.jpg', title: 'Weekly Prep', category: 'Plating', ratio: '3 / 2' },
+    { src: '/images/service-corporate.jpg', title: 'Boardroom Service', category: 'Events', ratio: '4 / 5' },
+    { src: '/images/hero-chef.jpg', title: 'Your Chef', category: 'Craft', ratio: '4 / 5.4' },
 ];
+
+
 
 export const faqGroups = [
     {
         eyebrow: 'FAQ',
         title: 'Frequently Asked Questions',
-        image: '/images/dish-scallop.jpg',
+        image: '/images/about-chef-hands.jpg',
         items: [
             {
                 q: 'How Far In Advance Should I Book?',
@@ -341,7 +340,7 @@ export const faqGroups = [
     {
         eyebrow: 'Menu & Dining',
         title: 'Everything You Need To Know',
-        image: '/images/dish-salmon.jpg',
+        image: '/images/service-wellness.jpg',
         items: [
             {
                 q: 'How Does The Private Chef Experience Work?',
@@ -455,7 +454,7 @@ export const posts = [
         category: 'Menus',
         date: 'March 12, 2026',
         readTime: '5 min read',
-        image: '/images/dish-scallop.jpg',
+        image: '/images/about-chef-hands.jpg',
     },
     {
         title: 'Pairing wine with a private dinner',

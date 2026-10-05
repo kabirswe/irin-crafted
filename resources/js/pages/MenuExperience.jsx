@@ -15,7 +15,7 @@ export default function MenuExperience() {
 
     return (
         <Layout content={content} path="/menu-experience">
-            <PageHero meta={pageMeta['/menu-experience']} breadcrumb={[{ label: 'Menu Experience' }]} image="/images/dish-scallop.jpg" />
+            <PageHero meta={pageMeta['/menu-experience']} breadcrumb={[{ label: 'Menu Experience' }]} image="/images/dish-filet.jpg" />
 
             <MenuCourses
                 courses={menuCourses}
@@ -112,7 +112,7 @@ export default function MenuExperience() {
                             <Img src="/images/dish-filet.jpg" alt="Signature main course" ratio="5 / 6" fallbackLabel="Signature main" className="w-full" />
                         </div>
                         <div data-parallax="-0.06" className="absolute -bottom-8 -left-6 hidden w-52 overflow-hidden rounded-[1.25rem] border border-gold-700/30 shadow-2xl sm:block">
-                            <Img src="/images/dish-mousse.jpg" alt="Dessert course" ratio="4 / 3" fallbackLabel="Dessert" className="w-full" />
+                            <Img src="/images/about-chef-hands.jpg" alt="Dessert course" ratio="4 / 3" fallbackLabel="Dessert" className="w-full" />
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ export default function MenuExperience() {
                 </div>
             </section>
 
-            <CtaBand cta={cta} image="/images/dish-salmon.jpg" />
+            <CtaBand cta={cta} image="/images/service-wellness.jpg" />
         </Layout>
     );
 }
