@@ -85,10 +85,20 @@ buttons         Inter 600, ~17px, gold fill, small radius
 17 routes: home, about, services, 6 service details, menu experience, gallery,
 FAQ, blog, book a chef, contact, 404.
 
-### Phase 5 — Verification (in progress)
-- Screenshot every route at 1440 and 390, compare against reference
-- Keyboard/contrast pass, focus-visible states, `sr-only` labels
-- Lighthouse pass on the built bundle
+### Phase 5 — Verification ✅
+- Every route screenshotted at 1440 and 390 and compared against the captured reference
+- Zero unresolved images and zero page errors across all routes; no horizontal
+  overflow at 390px
+- Accessibility: skip link, focus-visible states, `aria-expanded` / `aria-pressed`
+  / `aria-modal`, `sr-only` labels
+- **Automated verification in CI** (`.github/workflows/laravel.yml`):
+  `php -l` on every PHP file · `composer install` · `php artisan route:list`
+  (proves the app boots and all routes resolve) · `view:cache` (Blade compiles) ·
+  `config:cache` · migrate · serve · HTTP smoke test of all 15 routes returning
+  `200` with an Inertia payload plus a `404` on an unknown path · both Vite builds
+
+Run it locally with `gh run list` / `gh run watch`, or reproduce the front end with
+`npm run build && npm run preview:build`.
 
 ---
 
