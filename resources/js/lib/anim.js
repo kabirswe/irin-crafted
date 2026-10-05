@@ -162,7 +162,9 @@ export function createPageAnimations(scope) {
             el.textContent = `0${suffix}`;
         });
 
-        /* --- parallax -------------------------------------------- */
+        /* --- parallax --------------------------------------------
+           immediateRender is disabled so elements never sit offset or
+           clipped before their trigger actually fires.               */
         if (!reduced) {
             gsap.utils.toArray('[data-parallax]', scope).forEach((el) => {
                 const speed = parseFloat(el.dataset.parallax || '0.18');
@@ -172,6 +174,7 @@ export function createPageAnimations(scope) {
                     {
                         yPercent: speed * 42,
                         ease: 'none',
+                        immediateRender: false,
                         scrollTrigger: {
                             trigger: el.closest('[data-parallax-scope]') || el,
                             start: 'top bottom',
@@ -187,6 +190,7 @@ export function createPageAnimations(scope) {
         gsap.utils.toArray('[data-img-reveal]', scope).forEach((el) => {
             if (reduced) return;
             const img = el.querySelector('img') || el;
+            const st = { trigger: el, start: 'top 92%', once: true };
             gsap.fromTo(
                 el,
                 { clipPath: 'inset(0% 0% 100% 0%)' },
@@ -194,17 +198,19 @@ export function createPageAnimations(scope) {
                     clipPath: 'inset(0% 0% 0% 0%)',
                     duration: 1.4,
                     ease: 'power4.inOut',
-                    scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+                    immediateRender: false,
+                    scrollTrigger: st,
                 },
             );
             gsap.fromTo(
                 img,
-                { scale: 1.28 },
+                { scale: 1.22 },
                 {
                     scale: 1,
                     duration: 1.8,
                     ease: 'power4.out',
-                    scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+                    immediateRender: false,
+                    scrollTrigger: { ...st },
                 },
             );
         });
@@ -268,7 +274,18 @@ export function createPageAnimations(scope) {
         }
     }, scope);
 
-    return () => ctx.revert();
+    /* Recalculate trigger positions once fonts and images have settled,
+       otherwise late layout shifts can leave reveals untriggered. */
+    const refresh = () => ScrollTrigger.refresh();
+    const timers = [setTimeout(refresh, 350), setTimeout(refresh, 1200)];
+    if (typeof document !== 'undefined' && document.fonts?.ready) {
+        document.fonts.ready.then(refresh).catch(() => {});
+    }
+
+    return () => {
+        timers.forEach(clearTimeout);
+        ctx.revert();
+    };
 }
 
 /** Small helper for accordions (height + opacity, GSAP). */

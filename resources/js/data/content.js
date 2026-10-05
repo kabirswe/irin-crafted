@@ -90,7 +90,7 @@ export const features = [
 
 export const about = {
     eyebrow: 'About Us',
-    title: 'Passion for food. Commitment to you',
+    title: 'Passion For Food. Commitment To You',
     body: [
         'We believe that every meal is an opportunity to create memorable moments. Our mission is to bring people together through exceptional cuisine and personalized service.',
         'Every dish is thoughtfully crafted, every detail is considered, and every experience is designed to leave a lasting impression.',
@@ -313,38 +313,38 @@ export const gallery = [
 export const faqGroups = [
     {
         eyebrow: 'FAQ',
-        title: 'Frequently asked questions',
+        title: 'Frequently Asked Questions',
         image: '/images/dish-scallop.jpg',
         items: [
             {
-                q: 'How far in advance should I book?',
+                q: 'How Far In Advance Should I Book?',
                 a: 'We recommend booking at least 2–4 weeks in advance to secure your preferred date. For special occasions and holiday periods, earlier reservations are encouraged.',
             },
             {
-                q: 'Can dietary restrictions be accommodated?',
+                q: 'Can Dietary Restrictions Be Accommodated?',
                 a: 'Absolutely. Menus can be tailored to accommodate allergies, dietary restrictions and personal preferences, including vegetarian, vegan, gluten-free and other specialized requirements.',
             },
             {
-                q: 'Is cleanup included?',
+                q: 'Is Cleanup Included?',
                 a: 'Yes. Your chef leaves the kitchen exactly as it was found — cookware washed, surfaces cleared and any waste removed before departure.',
             },
             {
-                q: 'Do you provide ingredients?',
+                q: 'Do You Provide Ingredients?',
                 a: 'Yes. We source and provide all ingredients required for your selected menu, carefully choosing premium products to ensure exceptional quality and flavor.',
             },
             {
-                q: 'What areas do you serve?',
+                q: 'What Areas Do You Serve?',
                 a: 'We provide private chef services throughout the local region and selected surrounding areas. Contact us to confirm availability for your location.',
             },
         ],
     },
     {
-        eyebrow: 'Menu & dining',
-        title: 'Everything you need to know',
+        eyebrow: 'Menu & Dining',
+        title: 'Everything You Need To Know',
         image: '/images/dish-salmon.jpg',
         items: [
             {
-                q: 'How does the private chef experience work?',
+                q: 'How Does The Private Chef Experience Work?',
                 a: 'You share your date, guest count and preferences, we design a bespoke menu, then your chef arrives with ingredients and prepares every course in your kitchen.',
             },
             {
@@ -352,38 +352,38 @@ export const faqGroups = [
                 a: 'Always. Gluten-free, dairy-free, vegetarian, vegan, keto, paleo and nut-free menus are all prepared with the same level of craft.',
             },
             {
-                q: 'Do you offer vegetarian or vegan menus?',
+                q: 'Do You Offer Vegetarian Or Vegan Menus?',
                 a: 'Yes — seasonal vegetable tasting menus are among our most requested experiences, built around market produce and plant-based technique.',
             },
             {
-                q: 'Do you provide wine pairing?',
+                q: 'Do You Provide Wine Pairing?',
                 a: 'We offer guided pairings for each course, from champagne openers to dessert wines. You may supply your own cellar or we can source bottles for you.',
             },
             {
-                q: 'Can you serve large events?',
+                q: 'Can You Serve Large Events?',
                 a: 'We regularly serve dinners from two to sixty guests, with additional trained staff added for larger celebrations.',
             },
         ],
     },
     {
-        eyebrow: 'Booking & service',
-        title: 'Simple, secure and personalized',
+        eyebrow: 'Booking & Service',
+        title: 'Simple, Secure And Personalized',
         image: '/images/service-events.jpg',
         items: [
             {
-                q: 'What information do I need to provide?',
+                q: 'What Information Do I Need To Provide?',
                 a: 'Your date, guest count, service type, any dietary requirements and a rough idea of the atmosphere you would like to create.',
             },
             {
-                q: 'Is a deposit required?',
+                q: 'Is A Deposit Required?',
                 a: 'A 30% deposit confirms your date, with the balance due on the evening of your experience. Everything is invoiced transparently.',
             },
             {
-                q: 'Can I reschedule my booking?',
+                q: 'Can I Reschedule My Booking?',
                 a: 'Yes. Reschedule free of charge up to 7 days before your date, subject to availability.',
             },
             {
-                q: 'What happens after I submit a booking request?',
+                q: 'What Happens After I Submit A Booking Request?',
                 a: 'You will receive a reply within 24 hours with a proposed menu, a quote and next steps. Nothing is charged until you confirm.',
             },
         ],
@@ -500,16 +500,16 @@ export const posts = [
 ];
 
 export const cta = {
-    eyebrow: 'Reserve your date',
-    title: 'Ready to enjoy an unforgettable culinary experience?',
+    eyebrow: 'Reserve Your Date',
+    title: 'Ready To Enjoy An Unforgettable Culinary Experience?',
     body: 'Tell us about your occasion and we will craft a menu around it. Most evenings are confirmed within 24 hours.',
     primary: { label: 'Book your chef', href: '/book-a-chef' },
     secondary: { label: 'Contact us', href: '/contact-us' },
 };
 
 export const ctaAlt = {
-    eyebrow: 'Let’s begin',
-    title: 'Ready to create something extraordinary?',
+    eyebrow: 'Let’s Begin',
+    title: 'Ready To Create Something Extraordinary?',
     body: 'Share your date and preferences — we will take care of every detail from menu to cleanup.',
     primary: { label: 'Book your experience', href: '/book-a-chef' },
     secondary: { label: 'View the menu', href: '/menu-experience' },
@@ -563,67 +563,67 @@ export const pageMeta = {
     },
     '/about-us': {
         title: 'About Us',
-        eyebrow: 'Our story',
+        eyebrow: 'Our Story',
         body: 'Crafted with passion, precision and a deep commitment to unforgettable culinary experiences.',
     },
     '/services': {
         title: 'Services',
-        eyebrow: 'What we offer',
+        eyebrow: 'What We Offer',
         body: 'Personal chef experiences crafted for private dinners, weekly routines and unforgettable celebrations.',
     },
     '/private-dining': {
         title: 'Private Dining',
-        eyebrow: 'The experience',
+        eyebrow: 'The Experience',
         body: 'An intimate fine dining experience designed around your taste, occasion and lifestyle.',
     },
     '/weekly-meal-prep': {
         title: 'Weekly Meal Prep',
-        eyebrow: 'Weekly meal prep',
+        eyebrow: 'Weekly Meal Prep',
         body: 'Fresh, personalized meals prepared to bring ease, balance and flavor to your weekly routine.',
     },
     '/special-events': {
         title: 'Special Events',
-        eyebrow: 'Tailored to you',
+        eyebrow: 'Tailored To You',
         body: 'Refined culinary experiences for celebrations, gatherings and meaningful moments.',
     },
     '/corporate-dining': {
         title: 'Corporate Dining',
-        eyebrow: 'For business',
+        eyebrow: 'For Business',
         body: 'Refined menus and seamless service that impress clients, partners and teams.',
     },
     '/dietary-plans': {
         title: 'Wellness & Dietary Plans',
-        eyebrow: 'Wellness first',
+        eyebrow: 'Wellness First',
         body: 'Specialized menus for vegan, keto, gluten-free and other dietary needs — without compromising on flavour.',
     },
     '/wine-pairing': {
         title: 'Wine Pairing Experience',
-        eyebrow: 'Cellar & table',
+        eyebrow: 'Cellar & Table',
         body: 'Carefully selected pairings designed to complement every dish and elevate the evening.',
     },
     '/menu-experience': {
         title: 'Menu Experience',
-        eyebrow: 'Signature menu',
+        eyebrow: 'Signature Menu',
         body: 'A curated selection of seasonal dishes, signature flavors and refined culinary pairings.',
     },
     '/gallery': {
         title: 'Gallery',
-        eyebrow: 'Featured moments',
+        eyebrow: 'Featured Moments',
         body: 'A visual collection of elegant dishes, intimate moments and unforgettable dining experiences.',
     },
     '/faq': {
         title: 'FAQ',
-        eyebrow: 'Good to know',
+        eyebrow: 'Good To Know',
         body: 'Everything you need to know before booking your personal chef experience.',
     },
     '/book-a-chef': {
         title: 'Book a Chef',
-        eyebrow: 'Booking request',
+        eyebrow: 'Booking Request',
         body: 'Reserve a private dining experience tailored to your occasion, guests and preferences.',
     },
     '/contact-us': {
         title: 'Contact Us',
-        eyebrow: 'Get in touch',
+        eyebrow: 'Get In Touch',
         body: 'Let’s start planning a personalized culinary experience crafted around you.',
     },
     '/blog': {
