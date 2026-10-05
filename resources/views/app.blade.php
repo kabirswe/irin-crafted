@@ -5,6 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#0e0d0b">
 
+        <!-- Without JavaScript the motion layer never runs, so make sure
+             nothing stays hidden. -->
+        <noscript>
+            <style>
+                [data-split], [data-anim], [data-img-reveal], [data-promo] { opacity: 1 !important; transform: none !important; }
+                [data-split] { clip-path: none !important; }
+            </style>
+        </noscript>
+
         <title inertia>{{ config('app.name', 'Irin Crafted') }}</title>
         <meta name="description" content="Private chef experiences, seasonal menus and quietly impeccable service in the comfort of your home.">
 
@@ -18,7 +27,6 @@
         <link rel="preload" href="{{ asset('fonts/cormorant-garamond-latin-600-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="{{ asset('fonts/inter-latin-400-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-        @routes
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.jsx'])
         @inertiaHead

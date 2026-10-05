@@ -12,9 +12,22 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    react: ['react', 'react-dom', '@inertiajs/react'],
+                    motion: ['gsap'],
+                },
+            },
+        },
+    },
     server: {
         host: '0.0.0.0',
         allowedHosts: true,
-        hmr: { clientPort: 443 },
+        // Set VITE_HMR_CLIENT_PORT=443 when serving through an HTTPS tunnel
+        hmr: process.env.VITE_HMR_CLIENT_PORT
+            ? { clientPort: Number(process.env.VITE_HMR_CLIENT_PORT) }
+            : undefined,
     },
 });

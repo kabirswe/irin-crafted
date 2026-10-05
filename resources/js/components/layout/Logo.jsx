@@ -36,7 +36,7 @@ export default function Logo({ className = '', compact = false }) {
                     IRIN&nbsp;CRAFTED
                 </span>
                 {!compact && (
-                    <span className="mt-1 hidden text-[0.55rem] uppercase tracking-[0.42em] text-cream-500 sm:block">
+                    <span className="mt-1 hidden whitespace-nowrap text-[0.55rem] uppercase tracking-[0.4em] text-cream-500 sm:block">
                         Personal Chef Experiences
                     </span>
                 )}
