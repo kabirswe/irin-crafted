@@ -1,0 +1,52 @@
+name: Capture reference design
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/capture/**'
+      - '.github/workflows/capture-reference.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install playwright
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm i playwright@1.49.1 --no-save
+          npx playwright install chromium --with-deps
+
+      - name: Capture pages
+        run: node tools/capture/capture.mjs
+        continue-on-error: true
+
+      - name: Capture ThemeForest previews
+        run: node tools/capture/previews.mjs
+        continue-on-error: true
+
+      - name: Report sizes
+        run: |
+          du -sh design-reference || true
+          du -sh design-reference/* || true
+
+      - name: Commit captures
+        run: |
+          git config user.name "arena-agent"
+          git config user.email "agent@arena.ai"
+          git add -f design-reference
+          git commit -m "chore: capture reference design (screenshots + tokens + fonts) [skip ci]" || echo "nothing to commit"
+          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git push origin HEAD:${{ github.ref_name }}

@@ -1,0 +1,255 @@
+{
+  "generatedAt": "2026-10-05T10:28:29.509Z",
+  "base": "https://templateup.site/veyssette",
+  "pages": [
+    {
+      "slug": "home",
+      "url": "https://templateup.site/veyssette/",
+      "status": 200,
+      "htmlBytes": 144733,
+      "title": "Veyssette – Personal Chef Services Elementor Pro Template Kit"
+    },
+    {
+      "slug": "about-us",
+      "url": "https://templateup.site/veyssette/about-us/",
+      "status": 200,
+      "htmlBytes": 115273,
+      "title": "About Us – Veyssette"
+    },
+    {
+      "slug": "services",
+      "url": "https://templateup.site/veyssette/services/",
+      "status": 200,
+      "htmlBytes": 98764,
+      "title": "Services – Veyssette"
+    },
+    {
+      "slug": "private-dining",
+      "url": "https://templateup.site/veyssette/private-dining/",
+      "status": 200,
+      "htmlBytes": 101851,
+      "title": "Private Dining – Veyssette"
+    },
+    {
+      "slug": "weekly-meal-prep",
+      "url": "https://templateup.site/veyssette/weekly-meal-prep/",
+      "status": 200,
+      "htmlBytes": 91069,
+      "title": "Weekly Meal Prep – Veyssette"
+    },
+    {
+      "slug": "special-events",
+      "url": "https://templateup.site/veyssette/special-events/",
+      "status": 200,
+      "htmlBytes": 79073,
+      "title": "Special Events – Veyssette"
+    },
+    {
+      "slug": "menu-experience",
+      "url": "https://templateup.site/veyssette/menu-experience/",
+      "status": 200,
+      "htmlBytes": 82117,
+      "title": "Menu Experience – Veyssette"
+    },
+    {
+      "slug": "gallery",
+      "url": "https://templateup.site/veyssette/gallery/",
+      "status": 200,
+      "htmlBytes": 92245,
+      "title": "Gallery – Veyssette"
+    },
+    {
+      "slug": "faq",
+      "url": "https://templateup.site/veyssette/faq/",
+      "status": 200,
+      "htmlBytes": 105285,
+      "title": "FAQ – Veyssette"
+    },
+    {
+      "slug": "book-a-chef",
+      "url": "https://templateup.site/veyssette/book-a-chef/",
+      "status": 200,
+      "htmlBytes": 110595,
+      "title": "Book a Chef – Veyssette"
+    },
+    {
+      "slug": "contact-us",
+      "url": "https://templateup.site/veyssette/contact-us/",
+      "status": 200,
+      "htmlBytes": 83775,
+      "title": "Contact Us – Veyssette"
+    },
+    {
+      "slug": "blog",
+      "url": "https://templateup.site/veyssette/blog/",
+      "status": 200,
+      "htmlBytes": 99320,
+      "title": "Blog – Veyssette"
+    },
+    {
+      "slug": "404",
+      "url": "https://templateup.site/veyssette/404-2/",
+      "status": 200,
+      "htmlBytes": 60289,
+      "title": "404 – Veyssette"
+    }
+  ],
+  "fonts": [],
+  "css": [
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/custom-frontend.min.css?ver=1790172034",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_custom-frontend.min.css_ver_1790172034",
+      "bytes": 54915
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_widget-social-icons.min.css_ver_4.3.0",
+      "bytes": 5110
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/custom-widget-icon-list.min.css?ver=1790172034",
+      "name": "lateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_custom-widget-icon-list.min.css_ver_1790172034",
+      "bytes": 10293
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/template-kit-export/assets/public/template-kit-export-public.css?ver=1.0.23",
+      "name": ".site_veyssette_wp-content_plugins_template-kit-export_assets_public_template-kit-export-public.css_ver_1.0.23",
+      "bytes": 1130
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.5.1",
+      "name": "templateup.site_veyssette_wp-content_themes_hello-elementor_assets_css_reset.css_ver_3.5.1",
+      "bytes": 5829
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.5.1",
+      "name": "templateup.site_veyssette_wp-content_themes_hello-elementor_assets_css_theme.css_ver_3.5.1",
+      "bytes": 5823
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_widget-image.min.css_ver_4.3.0",
+      "bytes": 214
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-grow.min.css?ver=4.3.0",
+      "name": "up.site_veyssette_wp-content_plugins_elementor_assets_lib_animations_styles_e-animation-grow.min.css_ver_4.3.0",
+      "bytes": 198
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1790172034",
+      "name": "eup.site_veyssette_wp-content_uploads_sites_96_elementor_css_custom-pro-widget-nav-menu.min.css_ver_1790172034",
+      "bytes": 27333
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_widget-heading.min.css_ver_4.3.0",
+      "bytes": 560
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/custom-apple-webkit.min.css?ver=1790172034",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_custom-apple-webkit.min.css_ver_1790172034",
+      "bytes": 6713
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/post-382.css?ver=1790172042",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_post-382.css_ver_1790172042",
+      "bytes": 18116
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_lib_animations_styles_fadeIn.min.css_ver_4.3.0",
+      "bytes": 77
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css?ver=4.3.0",
+      "name": "mplateup.site_veyssette_wp-content_plugins_elementor_assets_lib_animations_styles_fadeInLeft.min.css_ver_4.3.0",
+      "bytes": 137
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/widget-counter.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_widget-counter.min.css_ver_4.3.0",
+      "bytes": 753
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.3.0",
+      "name": "plateup.site_veyssette_wp-content_plugins_elementor_assets_lib_animations_styles_fadeInRight.min.css_ver_4.3.0",
+      "bytes": 139
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/custom-widget-image-box.min.css?ver=1790172034",
+      "name": "lateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_custom-widget-image-box.min.css_ver_1790172034",
+      "bytes": 1657
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_conditionals_shapes.min.css_ver_4.3.0",
+      "bytes": 645
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_lib_animations_styles_fadeInUp.min.css_ver_4.3.0",
+      "bytes": 130
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_widget-divider.min.css_ver_4.3.0",
+      "bytes": 4258
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=4.1.2",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor-pro_assets_css_modules_sticky.min.css_ver_4.1.2",
+      "bytes": 162
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor-pro/assets/css/widget-price-list.min.css?ver=4.1.2",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor-pro_assets_css_widget-price-list.min.css_ver_4.1.2",
+      "bytes": 1615
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_lib_swiper_v8_css_swiper.min.css_ver_8.4.5",
+      "bytes": 16471
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.3.0",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor_assets_css_conditionals_e-swiper.min.css_ver_4.3.0",
+      "bytes": 5486
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/plugins/elementor-pro/assets/css/widget-nested-carousel.min.css?ver=4.1.2",
+      "name": "templateup.site_veyssette_wp-content_plugins_elementor-pro_assets_css_widget-nested-carousel.min.css_ver_4.1.2",
+      "bytes": 9760
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/post-387.css?ver=1790172501",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_post-387.css_ver_1790172501",
+      "bytes": 85249
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/post-850.css?ver=1790172293",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_post-850.css_ver_1790172293",
+      "bytes": 13658
+    },
+    {
+      "href": "https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/css/post-879.css?ver=1790172330",
+      "name": "templateup.site_veyssette_wp-content_uploads_sites_96_elementor_css_post-879.css_ver_1790172330",
+      "bytes": 25114
+    },
+    {
+      "href": "https://fonts.googleapis.com/css?family=Cormorant+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap",
+      "name": "300_300italic_400_400italic_500_500italic_600_600italic_700_700italic_800_800italic_900_900italic_display_swap",
+      "bytes": 20490
+    },
+    {
+      "href": "https://fonts.googleapis.com/css?family=Inter:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap",
+      "name": "300_300italic_400_400italic_500_500italic_600_600italic_700_700italic_800_800italic_900_900italic_display_swap",
+      "bytes": 45306
+    }
+  ],
+  "tokens": {
+    "title": "Veyssette – Personal Chef Services Elementor Pro Template Kit",
+    "bodyClasses": "home wp-singular page-template page-template-elementor_header_footer page page-id-387 wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-full-width elementor-kit-382 elementor-page elementor-page-387 e--ua-blink e--ua-chrome e--ua-mac e--ua-webkit",
+    "imageCount": 45
+  }
+}
