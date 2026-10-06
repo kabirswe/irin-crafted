@@ -6,6 +6,9 @@ on:
     branches: ['**']
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   backend:
     name: PHP / Laravel
@@ -28,6 +31,19 @@ jobs:
 
       - name: Composer install
         run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Commit composer.lock on first run
+        run: |
+          if [ -f composer.lock ] && ! git ls-files --error-unmatch composer.lock >/dev/null 2>&1; then
+            git config user.name "arena-agent"
+            git config user.email "agent@arena.ai"
+            git add composer.lock
+            git commit -m "chore: add composer.lock for reproducible installs [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+            echo "composer.lock committed"
+          else
+            echo "composer.lock already tracked"
+          fi
 
       - name: Prepare environment
         run: |
